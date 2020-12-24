@@ -32,14 +32,14 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book key={book.id} bookProps={book} />;
+        return <Book key={book.id} {...book} />;
       })}
     </section>
   );
 }
 
 const Book = (props) => {
-  const { img, title, author } = props.bookProps;
+  const { img, title, author } = props;
   return (
     <article className="book">
       <img src={img} alt="" />
@@ -48,27 +48,5 @@ const Book = (props) => {
     </article>
   );
 };
-
-// const Book1 = ({ img, title, author, children }) => {
-//   // de-structuring props as
-//   // const {img, title, author } = props;
-// ** 'children' is anything in the props between starting and ending tags of a component
-//   return (
-//     <article className="book">
-//       <img src={img} alt="" />
-//       <h1>{title}</h1>
-//       <h4>{author}</h4>
-//        {children}
-//     </article>
-//   );
-// };
-
-// const Author = () => {
-//   return (
-//        //  <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
-//       //   John Grisham
-//       // </h4>
-//   );
-// };
 
 ReactDOM.render(<BookList />, document.getElementById("root"));
