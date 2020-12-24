@@ -40,35 +40,26 @@ function BookList() {
 
 const Book = (props) => {
   const { img, title, author } = props.bookProps;
+  const clickHandler = () => {
+    console.log(title);
+  };
+  //attribute, eventHandler
+  //onClick, onMouseOver events
   return (
-    <article className="book">
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       <img src={img} alt="" />
       <h1>{title}</h1>
       <h4>{author}</h4>
+      <button type="button" onClick={clickHandler}>
+        Buy
+      </button>
     </article>
   );
 };
-
-// const Book1 = ({ img, title, author, children }) => {
-//   // de-structuring props as
-//   // const {img, title, author } = props;
-// ** 'children' is anything in the props between starting and ending tags of a component
-//   return (
-//     <article className="book">
-//       <img src={img} alt="" />
-//       <h1>{title}</h1>
-//       <h4>{author}</h4>
-//        {children}
-//     </article>
-//   );
-// };
-
-// const Author = () => {
-//   return (
-//        //  <h4 style={{ color: "#617d98", fontSize: "0.75rem", marginTop: "0.25rem" }}>
-//       //   John Grisham
-//       // </h4>
-//   );
-// };
 
 ReactDOM.render(<BookList />, document.getElementById("root"));

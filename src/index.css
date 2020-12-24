@@ -45,3 +45,7 @@ body {
 .book p {
   margin-top: 0.5rem;
 }
+.book button {
+  padding: 0.2rem;
+  margin-top: 0.5rem;
+}
